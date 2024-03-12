@@ -46,11 +46,11 @@ struct Node *defragmentNodes(struct Node *node, int hole) {
 
 // trieInsert helper
 struct Node *nodeInsert(struct Node *node, char *key) {
-    // increment current node value
-    node->value++;
-    // return if at end of string
-    if (key[0] == '\0')
+    // increment value and return if at end of string
+    if (key[0] == '\0') {
+        node->value++;
         return node;
+    }
     // get the next node
     struct Node *nextNode = nodeFind(node, key[0]);
     // if next node was found, recurse next node with next char in key
@@ -80,11 +80,11 @@ struct Node *trieInsert(struct Trie *trie, char *key) {
 
 // trieDelete helper
 void nodeDelete(struct Node *node, char *key) {
-    // decrement current node value
-    node->value--;
-    // return if at end of string
-    if (key[0] == '\0')
+    // decrement value and return if at end of string
+    if (key[0] == '\0') {
+        node->value--;
         return;
+    }
     // get the next node
     struct Node *nextNode = nodeFind(node, key[0]);
     // return if at end of trie

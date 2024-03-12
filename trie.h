@@ -27,3 +27,5 @@ void trieDelete(struct Trie *trie, char *key);
 
 // finds the value of a key
 int trieLookup(struct Trie *trie, char *key);
+
+void printTrie(struct Trie *trie);
